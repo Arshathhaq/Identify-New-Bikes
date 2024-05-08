@@ -4,7 +4,7 @@
 
 
 	<groups>
-		
+
 		<run>
 			<include name="smoke"></include>
 			<include name="regression"></include>
@@ -14,22 +14,17 @@
 	<listeners>
 		<listener class-name="utilities.ExtentReportManager"></listener>
 	</listeners>
-
+	<parameter name="browser" value="Chrome"></parameter>
+	<parameter name="manufacturer" value="Honda"></parameter>
+	<parameter name="email" value="abcdefgh@yahoo" />
 	<test name="ChromeTest">
-		<parameter name="browser" value="Chrome"></parameter>
-		<parameter name="manufacturer" value="Honda"></parameter>
-		<parameter name="email" value="abcdefgh@yahoo" />
 		<classes>
 			<class name="testClass.TestCases" />
 		</classes>
 	</test> <!-- Test -->
 
-	<!-- <test name="EdgeTest">
-		<parameter name="browser" value="Edge"></parameter>
-		<parameter name="manufacturer" value="Honda"></parameter>
-		<parameter name="email" value="abcdefgh@abc" />
-		<classes>
-			<class name="testClass.TestCases" />
-		</classes> 
-	</test> --> <!-- Test --> 
+	<!-- <test name="EdgeTest"> <parameter name="browser" value="Edge"></parameter> 
+		<parameter name="manufacturer" value="Honda"></parameter> <parameter name="email" 
+		value="abcdefgh@abc" /> <classes> <class name="testClass.TestCases" /> </classes> 
+		</test> --> <!-- Test -->
 </suite> <!-- Suite -->
