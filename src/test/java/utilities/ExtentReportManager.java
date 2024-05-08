@@ -4,15 +4,15 @@ package utilities;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
- 
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.model.Media;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
  
@@ -34,6 +34,14 @@ public class ExtentReportManager implements ITestListener
 		extent.setSystemInfo("Testers:","Arshathul Mohamed Haq");
 		extent.setSystemInfo("OS","Windows11");
 		extent.setSystemInfo("Browser name", context.getCurrentXmlTest().getParameter("browser"));
+		
+		Map<String, String> parameters = context.getCurrentXmlTest().getAllParameters();
+        for (Map.Entry<String, String> parameter : parameters.entrySet()) {
+            String env = System.getenv(parameter.getKey());
+            if (env != null && !env.trim().isEmpty()) {
+                parameter.setValue(env);
+            }
+        }
 	}
  
  
