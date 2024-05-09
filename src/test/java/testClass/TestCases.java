@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -26,7 +27,7 @@ public class TestCases extends BaseClass {
 
 	@Test(priority = 2, groups = { "regression" })
 	@Parameters({ "manufacturer" })
-	public void selectHonda(String name) throws InterruptedException, IOException {
+	public void selectHonda(@Optional String name) throws InterruptedException, IOException {
 		UpcomingBikes ub = new UpcomingBikes(driver);
 		ub.selectManufacturer(name);
 		captureScreenshot("selectHonda");
@@ -101,7 +102,7 @@ public class TestCases extends BaseClass {
 
 	@Test(priority = 10, groups = { "smoke" ,"regression"})
 	@Parameters({ "email" })
-	public void invalidLogIn(String email) throws InterruptedException {
+	public void invalidLogIn(@Optional String email) throws InterruptedException {
 		GoogleLogin gl = new GoogleLogin(driver);
 		gl.putEmail(email);
 		Thread.sleep(3000);

@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseClass {
@@ -26,7 +27,7 @@ public class BaseClass {
 
 	@BeforeClass(groups = {"smoke" , "regression"})
 	@Parameters({ "browser" })
-	public void setUpBrowser(String browser) throws IOException, InterruptedException {
+	public void setUpBrowser(@Optional String browser) throws IOException, InterruptedException {
 		LOGGER = LogManager.getLogger(this.getClass());
 
 		// Loading property file
