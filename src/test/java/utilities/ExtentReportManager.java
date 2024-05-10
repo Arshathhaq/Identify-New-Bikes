@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -18,7 +17,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
  
  
-public class ExtentReportManager implements ITestListener,ISuiteListener
+public class ExtentReportManager implements ITestListener
 {
 	public ExtentSparkReporter sparkReporter;  // UI of the report
 	public ExtentReports extent;  //populate common info on the report
@@ -36,13 +35,6 @@ public class ExtentReportManager implements ITestListener,ISuiteListener
 		extent.setSystemInfo("OS","Windows11");
 		extent.setSystemInfo("Browser name", context.getCurrentXmlTest().getParameter("browser"));
 		
-		Map<String, String> parameters = context.getCurrentXmlTest().getAllParameters();
-        for (Map.Entry<String, String> parameter : parameters.entrySet()) {
-            String env = System.getenv(parameter.getKey());
-            if (env != null && !env.trim().isEmpty()) {
-                parameter.setValue(env);
-            }
-        }
 	}
  
  
